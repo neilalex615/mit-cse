@@ -563,3 +563,21 @@ button:focus-visible,
     max-width: 100%;
   }
 }
+
+/* --- Mobile Layout Fix --- */
+@media (max-width: 768px) {
+  /* Forces the grid to stack items vertically on mobile */
+  .stat-grid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Ensures every single card takes up the full width of the screen */
+  .stat-card,
+  .mid-width-wrapper .stat-card,
+  .center-row-wrapper .stat-card,
+  .full-width-wrapper .stat-card {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

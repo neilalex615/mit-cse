@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MIT CSE SEM - 1 | Grade Target Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <canvas id="matrixCanvas"></canvas>
+
+  <section id="landing" class="landing">
+    <div class="landing-content">
+      <p class="eyebrow">Semester 1 &middot; Target Planner</p>
+      <h1 class="landing-title">MIT CSE SEM - 1</h1>
+      <button id="enterBtn" class="enter-btn" type="button">[ ENTER ]</button>
+    </div>
+  </section>
+
+  <main id="mainPage" class="main-page" hidden>
+    <header class="main-header">
+      <p class="eyebrow"> Anna University &middot; Regulations 2023 </p>
+      <h1 class="main-title">MIT CSE Semester 1</h1>
+      <p class="main-subtitle">Set your target GPA to see the exact marks you need in each subject.</p>
+    </header>
+
+    <section class="gpa-section">
+      <h2 class="section-label"><span class="step-no">01</span> Select target GPA</h2>
+
+<div class="gpa-track" id="gpaTrack">
+        <div class="track-base"></div>
+        <div class="track-fill" id="trackFill"></div>
+        <div class="drag-hitarea" id="dragHitarea"></div>
+        <div class="gpa-points" id="gpaPoints">
+          <button class="gpa-point" data-tier="8" style="--pos:0%" type="button">
+            <span class="dot"></span><span class="label">8.0+</span>
+          </button>
+          <button class="gpa-point" data-tier="8.5" style="--pos:33.3333%" type="button">
+            <span class="dot"></span><span class="label">8.5+</span>
+          </button>
+          <button class="gpa-point" data-tier="9" style="--pos:66.6666%" type="button">
+            <span class="dot"></span><span class="label">9.0+</span>
+          </button>
+          <button class="gpa-point" data-tier="9.5" style="--pos:100%" type="button">
+            <span class="dot"></span><span class="label">9.5+</span>
+          </button>
+        </div>
+        <div class="gpa-handle" id="gpaHandle"></div>
+      </div>
+      <p class="gpa-hint" id="gpaHint"></p>
+    </section>
+
+    <section class="mode-section" id="modeSection" hidden>
+      <h2 class="section-label"><span class="step-no">02</span> Choose your approach</h2>
+      <div class="mode-buttons">
+        <button class="mode-btn" data-mode="general" type="button">
+          <span class="mode-name">General</span>
+          <span class="mode-desc">Equal focus on all subjects</span>
+        </button>
+        <button class="mode-btn" data-mode="foundation" type="button">
+          <span class="mode-name">CSE Foundation</span>
+          <span class="mode-desc">Focuses on core CSE Subjects</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="subjects-section" id="subjectsSection" hidden>
+      <h2 class="section-label"><span class="step-no">03</span> Pick a subject</h2>
+      <div class="tabs" id="tabs"></div>
+      <div class="panel" id="panel"></div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/matrix.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

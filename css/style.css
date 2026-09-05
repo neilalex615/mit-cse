@@ -633,3 +633,230 @@ button:focus-visible,
     max-width: 100% !important;
   }
 }
+
+/* ===================== RESOURCES PAGE ===================== */
+
+.resources-page {
+  display: flex;
+  align-items: stretch;
+  min-height: 100dvh;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.resources-page.visible { opacity: 1; }
+
+/* ---- Sidebar: pinned to the far left, full height ---- */
+.resources-sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 1.5rem 0.9rem;
+  transition: width 0.25s ease, padding 0.25s ease;
+}
+
+.resources-sidebar.collapsed { width: 68px; padding: 1.5rem 0.6rem; }
+.resources-sidebar.collapsed .sidebar-nav,
+.resources-sidebar.collapsed .sidebar-brand-label { display: none; }
+
+.sidebar-toggle {
+  position: absolute;
+  top: 1.4rem;
+  right: 0.9rem;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.25s ease;
+}
+
+.resources-sidebar.collapsed .sidebar-toggle { right: 50%; transform: translateX(50%); }
+.sidebar-toggle:hover {
+  color: var(--cyan);
+  background: var(--surface-alt);
+}
+.resources-sidebar.collapsed .sidebar-toggle svg { transform: rotate(180deg); }
+
+.sidebar-brand { margin: 0 0 1.5rem; padding: 0 0.5rem; height: 26px; display: flex; align-items: center; }
+.sidebar-brand-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.sidebar-item {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.sidebar-item:hover { color: var(--text-primary); background: var(--surface-alt); }
+.sidebar-item.active { color: var(--text-primary); border-color: var(--cyan); background: rgba(34, 211, 238, 0.08); }
+
+/* ---- Main content column ---- */
+.resources-main {
+  flex: 1;
+  min-width: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 3rem) 5rem;
+}
+
+.resource-subtabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.subtab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 0.8rem 2rem;
+  font-size: 0.95rem;
+  min-width: 160px;
+  text-align: center;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.subtab:hover { border-color: var(--cyan); }
+.subtab.active { border-color: var(--cyan); color: var(--text-primary); background: rgba(34, 211, 238, 0.08); }
+
+.resource-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+@media (min-width: 640px) { .resource-grid { grid-template-columns: 1fr 1fr; } }
+
+.resource-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.resource-card:hover { border-color: var(--cyan); }
+.resource-main-item { display: flex; align-items: center; gap: 0.75rem; min-width: 0; cursor: pointer; flex: 1; }
+
+.resource-icon {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--violet);
+  background: var(--violet-soft);
+  border: 1px solid var(--violet);
+  border-radius: 6px;
+  padding: 0.25rem 0.4rem;
+}
+
+.course-card .resource-icon { color: #f87171; background: rgba(248, 113, 113, 0.12); border-color: #f87171; }
+
+.resource-title {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.resource-download, .resource-external {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.resource-download:hover, .resource-external:hover { color: var(--green); border-color: var(--green); }
+.resource-empty { color: var(--text-secondary); font-size: 0.85rem; grid-column: 1 / -1; }
+
+/* ---- Mobile ---- */
+@media (max-width: 760px) {
+  .resources-sidebar { width: 210px; padding: 1.25rem 0.75rem; }
+  .resources-sidebar.collapsed { width: 56px; padding: 1.25rem 0.5rem; }
+  .resources-main { padding: 1.25rem 1rem 3rem; max-width: 100%; }
+  .resource-grid { grid-template-columns: 1fr; }
+  .subtab { padding: 0.65rem 1.5rem; font-size: 0.88rem; min-width: 0; }
+    .resources-sidebar {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    width: 100% !important;
+    height: 100dvh;
+    justify-content: center;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .resources-sidebar.collapsed {
+    width: 52px !important;
+    height: 52px;
+    inset: auto;
+    top: 1rem;
+    left: 1rem;
+    border-radius: 50%;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+  }
+
+  .resources-sidebar.collapsed .sidebar-brand { display: none; }
+
+  .resources-sidebar .sidebar-toggle {
+    position: absolute;
+    top: 1.4rem;
+    right: 1.1rem;
+  }
+
+  .resources-sidebar.collapsed .sidebar-toggle {
+    position: static;
+  }
+#resourcesPage[hidden] { display: none !important; }
+}

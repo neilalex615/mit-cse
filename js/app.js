@@ -72,7 +72,7 @@ function resetGpaPage() {
     mainPage.style.display = pageElement === mainPage ? "block" : "none";
     mainPage.hidden = pageElement !== mainPage;
 
-    resourcesPage.style.display = pageElement === resourcesPage ? "block" : "none";
+    resourcesPage.style.display = pageElement === resourcesPage ? "flex" : "none";
     resourcesPage.hidden = pageElement !== resourcesPage;
 
     requestAnimationFrame(() => pageElement.classList.add("visible"));
@@ -96,7 +96,7 @@ function resetGpaPage() {
     landing.style.display = "none";
     landing.hidden = true;
 
-    pageElement.style.display = "block"; 
+    pageElement.style.display = pageElement === resourcesPage ? "flex" : "block";
     pageElement.hidden = false;
     requestAnimationFrame(() => pageElement.classList.add("visible"));
     

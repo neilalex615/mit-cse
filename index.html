@@ -79,14 +79,35 @@
     </section>
   </main> <!-- This is the existing closing tag for mainPage -->
 
-  <main id="resourcesPage" class="main-page" hidden>
+    <main id="resourcesPage" class="resources-page" hidden>
+  <aside class="resources-sidebar" id="resourcesSidebar">
+    <button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Collapse sidebar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M15 18l-6-6 6-6" />
+      </svg>
+    </button>
+    <div class="sidebar-brand"><span class="sidebar-brand-label">Resources</span></div>
+    <nav class="sidebar-nav" id="sidebarNav"></nav>
+  </aside>
+
+  <div class="resources-main">
     <header class="main-header">
       <h1 class="main-title">Resources</h1>
-      <p class="main-subtitle">Blank page ready for future content.</p>
+      <p class="main-subtitle">Study materials, PYQs and courses for every subject.</p>
     </header>
-  </main>
+
+    <div class="resources-content">
+      <div class="resource-subtabs" id="resourceSubtabs"></div>
+      <div class="resource-grid" id="resourceGrid"></div>
+    </div>
+  </div>
+</main>
+
   <script src="js/data.js"></script>
+  <script src="js/resources-data.js"></script>
   <script src="js/matrix.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/resources.js"></script>
+  
 </body>
 </html>

@@ -1,11 +1,3 @@
-// js/resources-data.js
-//
-// TO ADD A PDF: paste the normal Google Drive share link into `driveLink`.
-//   Get it via: right-click file in Drive -> Share -> "Anyone with the link" -> Copy link.
-//   The code below extracts the file ID and builds the preview + download URLs itself.
-//
-// TO ADD A VIDEO (Courses tab, or Skills tab): add { title, url } with the YouTube link.
-// ---- Prompts for the "Problems" tab copy button ----
 const PROBLEM_INTRO_PROMPT =
 `I'm a beginner C student solving the problem "Check Prime Number" on GeeksforGeeks.
 First, briefly explain:
@@ -85,7 +77,6 @@ const RESOURCES = {
     name: "Programming in C",
     hasCourses: true,
     study: [
-      // { title: "Unit 1 Notes", driveLink: "https://drive.google.com/file/d/XXXXXXXX/view?usp=sharing" },
       { title: "Syllabus", driveLink: "https://drive.google.com/file/d/15jmeHORr0ZvROVfiiPomc-eIql-4GwIz/view?usp=sharing" },
       { title: "Unit 1", driveLink: "https://drive.google.com/file/d/1APjwZbcsgy-4PBL52Ux_yG10GXOTQQaA/view?usp=sharing" }
     ],
@@ -98,7 +89,6 @@ const RESOURCES = {
     { title: "End Sem - 2024", driveLink: "https://drive.google.com/file/d/18ZItVCJf5XPSOgoFvJBNz0U2VXJXRBxs/view?usp=sharing" },
     ],
     courses: [
-      // { title: "Pointers Explained", url: "https://youtu.be/xxxxxxxx" },
       { title: "C Programming Full Course", url: "https://www.youtube.com/watch?v=xND0t1pr3KY", type:"video"},
       { title: "How to Install C Compiler", url: "https://www.youtube.com/watch?v=ADrTxCB0jCs", type:"video"},
       { title: "Coding C App (Android)", url: "https://play.google.com/store/apps/details?id=com.kvassyu.coding2.c&hl=en&pli=1", type: "tool" },
@@ -160,7 +150,6 @@ const RESOURCES = {
       { title: "Trapping Rain Water", url: "https://www.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1", difficulty: "hard" },
     ],
     practice: [
-      // { title: "Recursion Explained", url: "https://youtu.be/xxxxxxxx" },
       { title: "Git and Github", url: "https://www.youtube.com/watch?v=mAFoROnOfHs", type: "video"},
       { title: "SpeedCoder", url: "https://www.speedcoder.net/", type: "tool" },
 

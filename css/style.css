@@ -89,7 +89,7 @@ button:focus-visible,
   margin: 0;
 }
 
-/* 1. Landing Buttons Container */
+
 .landing-buttons {
   display: flex;
   gap: 1.25rem;
@@ -99,13 +99,12 @@ button:focus-visible,
   flex-wrap: wrap; 
 }
 
-/* 2. Equal Size & Slightly Larger Landing Buttons */
 .landing-buttons .enter-btn {
   font-family: var(--font-mono);
-  font-size: 0.95rem;          /* Increased font size */
+  font-size: 0.95rem;          
   letter-spacing: 0.08em;
-  padding: 0.85rem 0;           /* Fixed height padding */
-  width: 190px;                 /* Forces both buttons to have the exact same width */
+  padding: 0.85rem 0;          
+  width: 190px;               
   text-align: center;
   border-radius: 8px;
   background: rgba(52, 211, 153, 0.07);
@@ -113,7 +112,7 @@ button:focus-visible,
   color: var(--green);
   cursor: pointer;
   transition: all 0.25s ease;
-  margin-top: 0;                /* Resets previous top margin */
+  margin-top: 0;               
 }
 
 .landing-buttons .enter-btn:hover {
@@ -122,7 +121,7 @@ button:focus-visible,
   box-shadow: 0 0 20px rgba(52, 211, 153, 0.15);
 }
 
-/* 3. Ensure Main Page acts as an absolute positioning anchor */
+
 .main-page {
   opacity: 0;
   transition: opacity 0.6s ease;
@@ -131,7 +130,7 @@ button:focus-visible,
   margin: 0 auto;
 }
 
-/* Ensure the inner sections take full width of the container */
+
 .main-header,
 .gpa-section,
 .mode-section,
@@ -139,10 +138,10 @@ button:focus-visible,
   width: 100%;
 }
 
-/* 4. Position Back Button at the Top-Left Corner */
+
 .back-btn {
   position: absolute;
-  top: 1.5rem;                  /* Places it cleanly in the top left */
+  top: 1.5rem;                  
   left: 1.25rem;
   background: transparent;
   border: 1px solid var(--border);
@@ -192,7 +191,7 @@ button:focus-visible,
 
 .main-header {
   position: relative;
-  text-align: center; /* Centers the eyebrow, title, and subtitle */
+  text-align: center; 
   margin-bottom: clamp(2.5rem, 6vw, 3.5rem);
 }
 
@@ -231,7 +230,7 @@ button:focus-visible,
 .section-label {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Ensures it stays on the left */
+  justify-content: flex-start; 
   gap: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.85rem;
@@ -616,15 +615,15 @@ button:focus-visible,
   }
 }
 
-/* --- Mobile Layout Fix --- */
+
 @media (max-width: 768px) {
-  /* Forces the grid to stack items vertically on mobile */
+
   .stat-grid {
     display: flex !important;
     flex-direction: column !important;
   }
 
-  /* Ensures every single card takes up the full width of the screen */
+
   .stat-card,
   .mid-width-wrapper .stat-card,
   .center-row-wrapper .stat-card,
@@ -634,7 +633,7 @@ button:focus-visible,
   }
 }
 
-/* ===================== RESOURCES PAGE ===================== */
+
 
 .resources-page {
   display: flex;
@@ -648,7 +647,6 @@ button:focus-visible,
 
 .resources-page.visible { opacity: 1; }
 
-/* ---- Sidebar: pinned to the far left, full height ---- */
 .resources-sidebar {
   position: relative;
   display: flex;
@@ -726,7 +724,6 @@ button:focus-visible,
 .sidebar-item:hover { color: var(--text-primary); background: var(--surface-alt); }
 .sidebar-item.active { color: var(--text-primary); border-color: var(--cyan); background: rgba(34, 211, 238, 0.08); }
 
-/* ---- Main content column ---- */
 .resources-main {
   flex: 1;
   min-width: 0;
@@ -734,13 +731,13 @@ button:focus-visible,
   height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;      /* Firefox */
-  -ms-overflow-style: none;   /* old Edge/IE */
+  scrollbar-width: none;      
+  -ms-overflow-style: none;   
   padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 3rem) 5rem;
 }
 
 .resources-main::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge (Chromium) */
+  display: none; 
 }
 
 .resources-main .main-header {
@@ -768,7 +765,7 @@ button:focus-visible,
   gap: clamp(0.25rem, 1.5vw, 1rem); 
   flex-wrap: nowrap;
   width: 100%;
-  margin-bottom: 1.2rem; /* Adds vertical space above the file box */
+  margin-bottom: 1.2rem; 
 }
 
 .subtab {
@@ -794,7 +791,7 @@ button:focus-visible,
   grid-template-columns: 1fr; 
   gap: 0.75rem; 
 }
-/* The @media query for 2 columns has been removed */
+
 
 .resource-card {
   display: flex;
@@ -885,11 +882,11 @@ button:focus-visible,
   }
 
   .resources-sidebar.collapsed {
-    width: 42px !important;  /* Made smaller */
-    height: 42px;            /* Made smaller */
+    width: 42px !important;  
+    height: 42px;            
     inset: auto;
-    top: 0.5rem;             /* Moved higher */
-    left: 0.5rem;            /* Moved further left */
+    top: 0.5rem;             
+    left: 0.5rem;            
     border-radius: 50%;
     padding: 0;
     align-items: center;

@@ -22,33 +22,33 @@
 
   const GRADE_FOR_TIER = { "8": "A", "8.5": "A+", "9": "A+", "9.5": "O" };
 
-  // Add this function inside your IIFE in app.js
+
 function resetGpaPage() {
-  // 1. Reset state object
+
   state.tier = null;
   state.mode = null;
   state.subject = null;
   subjectsInitialized = false;
 
-  // 2. Clear visual selections on track and handle
+
   trackFill.style.width = "0%";
   gpaHandle.classList.remove("visible");
   gpaHint.textContent = "";
   document.querySelectorAll(".gpa-point").forEach((p) => p.classList.remove("active"));
 
-  // 3. Reset and hide step 02 (Mode)
+
   document.querySelectorAll(".mode-btn").forEach((b) => b.classList.remove("active"));
   modeSection.classList.remove("visible");
   modeSection.hidden = true;
 
-  // 4. Reset and hide step 03 (Subjects & Panel)
+
   subjectsSection.classList.remove("visible");
   subjectsSection.hidden = true;
   tabsEl.innerHTML = "";
   panelEl.innerHTML = "";
 }
 
-// Helper to hide all main pages and return to landing
+
   function showLanding() {
     mainPage.classList.remove("visible");
     resourcesPage.classList.remove("visible");
@@ -64,7 +64,6 @@ function resetGpaPage() {
     }, 300);
   }
 
-  // Show target page directly without matrix effect (used for popstate/back-forward)
   function showPageDirect(pageElement) {
     landing.style.display = "none";
     landing.hidden = true;
@@ -78,10 +77,10 @@ function resetGpaPage() {
     requestAnimationFrame(() => pageElement.classList.add("visible"));
   }
 
-  // Open page with full matrix transition and add state to browser history
+
   function openPage(pageElement, pageName) {
   if (pageElement === mainPage) {
-    resetGpaPage(); // Reset state when opening via buttons
+    resetGpaPage();
   }
 
   history.pushState({ page: pageName }, "", "#" + pageName);
@@ -110,16 +109,14 @@ function resetGpaPage() {
   }, revealDelay);
 }
 
-  // Button clicks for forward navigation
   gpaBtn.addEventListener("click", () => openPage(mainPage, "gpa"));
   resourcesBtn.addEventListener("click", () => openPage(resourcesPage, "resources"));
 
-  // Native Browser/Mobile Back & Forward listener
   window.addEventListener("popstate", (e) => {
   if (!e.state || !e.state.page) {
     showLanding();
   } else if (e.state.page === "gpa") {
-    resetGpaPage(); // Reset state when navigating via browser history
+    resetGpaPage();
     showPageDirect(mainPage);
   } else if (e.state.page === "resources") {
     showPageDirect(resourcesPage);

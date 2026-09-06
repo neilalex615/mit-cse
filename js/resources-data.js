@@ -5,7 +5,35 @@
 //   The code below extracts the file ID and builds the preview + download URLs itself.
 //
 // TO ADD A VIDEO (Courses tab, or Skills tab): add { title, url } with the YouTube link.
+// ---- Prompts for the "Problems" tab copy button ----
+const PROBLEM_INTRO_PROMPT =
+`I'm a beginner C student solving the problem "Check Prime Number" on GeeksforGeeks.
+First, briefly explain:
+1. GfG Page Anatomy: What Input/Output Format, Constraints, and Examples mean.
+2. Compile & Run vs. Submit: The difference between testing sample cases vs. hidden test cases.
+3. General Workflow: A simple step-by-step approach for solving any coding problem.
+Then, for this problem, provide:
+1. Simple explanation: What is it asking, in plain English?
+2. Example: Walk through a sample input/output step-by-step.
+3. Guiding questions: Ask a few questions to help me build the logic myself.
+Strict Rules:
+* NO code, algorithms, or direct steps to solve it.
+* If I say I'm stuck, give me exactly ONE small conceptual hint.
+* If your assumed input/output format differs from my GfG page, ask me to paste the constraints.
+* Only review or write code if I explicitly paste my attempt and ask for feedback.`;
 
+const PROBLEM_PROMPT_TEMPLATE =
+`I'm a beginner C student solving the problem "[Problem Name]" on GeeksforGeeks.
+Please act as my tutor and provide:
+1. A simple explanation: What is this asking, in plain English?
+2. An example: Provide a sample input/output and walk through it step-by-step.
+3. Edge cases: What tricky scenarios (e.g., negative numbers, empty inputs) should I watch out for?
+4. Guiding questions: Ask me a few questions to help me build the logic myself.
+Strict Rules:
+* NO code, NO algorithms, and NO direct steps to solve it.
+* If I say I'm stuck, give me exactly ONE small conceptual hint.
+* If your assumed input/output format differs from my GfG page, just ask me to paste the exact constraints.
+* Only review or write code if I explicitly paste my attempt and ask for feedback.`;
 const RESOURCES = {
   calculus: { name: "Calculus",                  study: [
     { title: "Syllabus", driveLink: "https://drive.google.com/file/d/1HjueCTj9-V6mihqk7TzLBC3d3KzKj7Ed/view?usp=sharing" },
@@ -71,7 +99,10 @@ const RESOURCES = {
     ],
     courses: [
       // { title: "Pointers Explained", url: "https://youtu.be/xxxxxxxx" },
-      { title: "How to Install C Compiler", url: "https://www.youtube.com/watch?v=ADrTxCB0jCs" }
+      { title: "C Programming Full Course", url: "https://www.youtube.com/watch?v=xND0t1pr3KY", type:"video"},
+      { title: "How to Install C Compiler", url: "https://www.youtube.com/watch?v=ADrTxCB0jCs", type:"video"},
+      { title: "Coding C App (Android)", url: "https://play.google.com/store/apps/details?id=com.kvassyu.coding2.c&hl=en&pli=1", type: "tool" },
+      { title: "Online C Compiler", url: "https://www.programiz.com/c-programming/online-compiler/", type: "tool" },
     ],
   },
 
@@ -100,14 +131,41 @@ const RESOURCES = {
 
   skills: {
     name: "Skills",
-    isSkills: true, // no sub-tabs
-    items: [
-      // PDF example:
-      // { title: "Resume Guide", driveLink: "https://drive.google.com/file/d/XXXXXXXX/view?usp=sharing" },
-      // Video example:
-      // { title: "Git Basics", url: "https://youtu.be/xxxxxxxx" },
+    isSkills: true,
+    problems: [
+      { title: "Prime Number", url: "https://www.geeksforgeeks.org/problems/prime-number2314/1", difficulty: "easy" },
+      { title: "Sum of Digits", url: "https://www.geeksforgeeks.org/problems/sum-of-digits1742/1", difficulty: "easy" },
+      { title: "Factorial", url: "https://www.geeksforgeeks.org/problems/factorial5739/1", difficulty: "easy" },
+      { title: "Nth Fibonacci Number", url: "https://www.geeksforgeeks.org/problems/nth-fibonacci-number1335/1", difficulty: "easy" },
+      { title: "Largest Element in Array", url: "https://www.geeksforgeeks.org/problems/largest-element-in-array4009/1", difficulty: "easy" },
+      { title: "Reverse a String", url: "https://www.geeksforgeeks.org/problems/reverse-a-string/1", difficulty: "easy" },
+      { title: "Palindrome String", url: "https://www.geeksforgeeks.org/problems/palindrome-string0817/1", difficulty: "easy" },
+      { title: "Consonants and Vowels Check", url: "https://www.geeksforgeeks.org/problems/consonants-and-vowels-check-java/1", difficulty: "easy" },
+      { title: "GCD of Two Numbers", url: "https://www.geeksforgeeks.org/problems/gcd-of-two-numbers3459/1", difficulty: "easy" },
+      { title: "Search an Element in an Array", url: "https://www.geeksforgeeks.org/problems/search-an-element-in-an-array-1587115621/1", difficulty: "easy" },
+      { title: "Palindrome Number", url: "https://www.geeksforgeeks.org/problems/palindrome0746/1", difficulty: "easy" },
+      { title: "Print 1 To N Without Loop", url: "https://www.geeksforgeeks.org/problems/print-1-to-n-without-using-loops3621/1", difficulty: "easy" },
+
+      { title: "Binary Search", url: "https://www.geeksforgeeks.org/problems/who-will-win-1587115621/1", difficulty: "med" },
+      { title: "Second Largest Element in an Array", url: "https://www.geeksforgeeks.org/problems/second-largest3735/1", difficulty: "med" },
+      { title: "Rotate Array by One", url: "https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1", difficulty: "med" },
+      { title: "Anagram", url: "https://www.geeksforgeeks.org/problems/anagram-1587115620/1", difficulty: "med" },
+      { title: "Reverse Words in a String", url: "https://www.geeksforgeeks.org/problems/reverse-words-in-a-given-string5459/1", difficulty: "med" },
+      { title: "Missing Number in Array", url: "https://www.geeksforgeeks.org/problems/missing-number-in-array1416/1", difficulty: "med" },
+      { title: "Fibonacci Using Recursion", url: "https://www.geeksforgeeks.org/problems/fibonacci-using-recursion/1", difficulty: "med" },
+      { title: "Power Set Using Recursion", url: "https://www.geeksforgeeks.org/problems/power-set-using-recursion/1", difficulty: "med" },
+      { title: "Sort 0s, 1s and 2s", url: "https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1", difficulty: "med" },
+
+      { title: "Kadane's Algorithm", url: "https://www.geeksforgeeks.org/problems/kadanes-algorithm-1587115620/1", difficulty: "hard" },
+      { title: "Trapping Rain Water", url: "https://www.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1", difficulty: "hard" },
+    ],
+    practice: [
+      // { title: "Recursion Explained", url: "https://youtu.be/xxxxxxxx" },
+      { title: "Git and Github", url: "https://www.youtube.com/watch?v=mAFoROnOfHs", type: "video"},
+      { title: "SpeedCoder", url: "https://www.speedcoder.net/", type: "tool" },
+
+
     ],
   },
-
 
 };

@@ -652,7 +652,7 @@ button:focus-visible,
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 260px;
+  width: 320px;
   flex-shrink: 0;
   background: var(--surface);
   border-right: 1px solid var(--border);
@@ -729,37 +729,45 @@ button:focus-visible,
 .resources-main {
   flex: 1;
   min-width: 0;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 3rem) 5rem;
 }
 
 .resource-subtabs {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.25rem;
+  align-items: center;
+  gap: clamp(0.25rem, 1.5vw, 1rem); 
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-bottom: 1.2rem; /* Adds vertical space above the file box */
 }
 
 .subtab {
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  padding: 0.8rem 2rem;
-  font-size: 0.95rem;
-  min-width: 160px;
+  padding: clamp(0.5rem, 1.2vw, 0.8rem) clamp(0.8rem, 2vw, 2rem);
+  font-size: clamp(0.78rem, 1.5vw, 0.95rem);
+  min-width: 0;
   text-align: center;
   border-radius: 999px;
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 1;
 }
 
 .subtab:hover { border-color: var(--cyan); }
 .subtab.active { border-color: var(--cyan); color: var(--text-primary); background: rgba(34, 211, 238, 0.08); }
 
-.resource-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
-@media (min-width: 640px) { .resource-grid { grid-template-columns: 1fr 1fr; } }
+.resource-grid { 
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 0.75rem; 
+}
+/* The @media query for 2 columns has been removed */
 
 .resource-card {
   display: flex;
@@ -823,7 +831,17 @@ button:focus-visible,
   .resources-sidebar.collapsed { width: 56px; padding: 1.25rem 0.5rem; }
   .resources-main { padding: 1.25rem 1rem 3rem; max-width: 100%; }
   .resource-grid { grid-template-columns: 1fr; }
-  .subtab { padding: 0.65rem 1.5rem; font-size: 0.88rem; min-width: 0; }
+  .resource-subtabs { 
+    justify-content: center;
+  }
+
+  .subtab { 
+    padding: 0.5rem 1rem; 
+    font-size: 0.82rem; 
+    min-width: 0; 
+    white-space: nowrap; 
+    flex-shrink: 0; 
+  }
     .resources-sidebar {
     position: fixed;
     inset: 0;
@@ -835,11 +853,11 @@ button:focus-visible,
   }
 
   .resources-sidebar.collapsed {
-    width: 52px !important;
-    height: 52px;
+    width: 42px !important;  /* Made smaller */
+    height: 42px;            /* Made smaller */
     inset: auto;
-    top: 1rem;
-    left: 1rem;
+    top: 0.5rem;             /* Moved higher */
+    left: 0.5rem;            /* Moved further left */
     border-radius: 50%;
     padding: 0;
     align-items: center;
@@ -857,6 +875,8 @@ button:focus-visible,
 
   .resources-sidebar.collapsed .sidebar-toggle {
     position: static;
+    transform: none;
   }
 #resourcesPage[hidden] { display: none !important; }
 }
+

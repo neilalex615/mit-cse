@@ -89,5 +89,16 @@ const RESOURCES = {
     { title: "End Sem - 2024", driveLink: "https://drive.google.com/file/d/1NutBW-tWfU8TlzLfifvTkqI9uyAUoBTX/view?usp=sharing" },
   ] },
 
+  skills: {
+    name: "Skills",
+    isSkills: true, // no sub-tabs
+    items: [
+      // PDF example:
+      // { title: "Resume Guide", driveLink: "https://drive.google.com/file/d/XXXXXXXX/view?usp=sharing" },
+      // Video example:
+      // { title: "Git Basics", url: "https://youtu.be/xxxxxxxx" },
+    ],
+  },
+
 
 };

@@ -23,6 +23,11 @@
     return id ? "https://drive.google.com/file/d/" + id + "/preview" : "#";
   }
 
+function driveViewUrl(link) {
+  const id = driveFileId(link);
+  return id ? "https://drive.google.com/file/d/" + id + "/view" : "#";
+}
+
   function driveDownloadUrl(link) {
     const id = driveFileId(link);
     return id ? "https://drive.google.com/uc?export=download&id=" + id : "#";
@@ -111,7 +116,7 @@
   }
 
   function buildPdfCard(item) {
-    const previewUrl = drivePreviewUrl(item.driveLink);
+    const previewUrl = driveViewUrl(item.driveLink);
     const downloadUrl = driveDownloadUrl(item.driveLink);
 
     const card = document.createElement("div");

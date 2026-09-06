@@ -7,7 +7,9 @@
 // TO ADD A VIDEO (Courses tab, or Skills tab): add { title, url } with the YouTube link.
 
 const RESOURCES = {
-  calculus: { name: "Calculus",                  study: [{ title: "Module 1", driveLink: "https://drive.google.com/file/d/1wA4lssfDhFF7QtradiMzJSjiUiRx-_OX/view?usp=sharing" }], pyqs: [
+  calculus: { name: "Calculus",                  study: [
+    { title: "Syllabus", driveLink: "https://drive.google.com/file/d/1HjueCTj9-V6mihqk7TzLBC3d3KzKj7Ed/view?usp=sharing" },
+    { title: "Module 1", driveLink: "https://drive.google.com/file/d/1wA4lssfDhFF7QtradiMzJSjiUiRx-_OX/view?usp=sharing" }], pyqs: [
     { title: "CA 1 - 2023", driveLink: "https://drive.google.com/file/d/1lYmsiTw1wvxb5IBltRmvpxSSUYhN9o_o/view?usp=sharing" },
     { title: "CA 2 - 2023", driveLink: "https://drive.google.com/file/d/1SbJwqd4yRL8VaLt0NwhoHhvX5dioltMp/view?usp=sharing" },
     { title: "CA 1 - 2024", driveLink: "https://drive.google.com/file/d/1xZjghLNQKPxW5HZXqfwblzy-uXJ-6tzn/view?usp=sharing" },
@@ -16,7 +18,9 @@ const RESOURCES = {
     { title: "End Sem - 2024", driveLink: "https://drive.google.com/file/d/180-ssRjtbjjBdBuq9UksdQb-8q7JTgPr/view?usp=sharing" },
 
   ] },
-  english:  { name: "Foundation English",        study: [], pyqs: [
+  english:  { name: "Foundation English",        study: [
+    { title: "Syllabus", driveLink: "https://drive.google.com/file/d/1Dn2iMMHZJVn07syXEWLHLNgxnpBHdisl/view?usp=sharing" },
+  ], pyqs: [
     { title: "CA 1 - 2023", driveLink: "https://drive.google.com/file/d/1zPuvY0sqN4sWt_bM65MJi5jVFdEpBtD6/view?usp=sharing" },
     { title: "CA 2 - 2023", driveLink: "https://drive.google.com/file/d/1yd6wq-KNDK2bt0zMMXr7tgt81TflC8VK/view?usp=sharing" },
     { title: "CA 1 - 2024", driveLink: "https://drive.google.com/file/d/1RZuhnXQKz4xUBNfWHFKyCpo2RZKENdlz/view?usp=sharing" },
@@ -27,6 +31,7 @@ const RESOURCES = {
 
   ] },
   physics:  { name: "Engineering Physics",       study: [
+    { title: "Syllabus", driveLink: "https://drive.google.com/file/d/1hOViSQmhkyqK0pKVO87fprLU38tcXAm6/view?usp=sharing" },
     { title: "Handwritten Notes", driveLink: "https://drive.google.com/file/d/1Yf308GLH2x6R2Cy8nq5LZS55stWojOqq/view?usp=sharing" },
   ], pyqs: [
     { title: "CA 1 - 2023", driveLink: "https://drive.google.com/file/d/1WTJFkQJ11IDb42wo4fjYNcimAf1SFagi/view?usp=sharing" },
@@ -37,6 +42,7 @@ const RESOURCES = {
     { title: "End Sem - 2024", driveLink: "https://drive.google.com/file/d/1GhVKk_Z3jiXNioH56fq9Kd2UHxpZJXgM/view?usp=sharing" },
   ] },
   eee:      { name: "FEEE",  study: [
+    { title: "Syllabus", driveLink: "https://drive.google.com/file/d/1R2pGAaLpBpsEDG2VbaRGhBNZThSF6u1m/view?usp=sharing" },
     { title: "Unit 1", driveLink: "https://drive.google.com/file/d/1Yf308GLH2x6R2Cy8nq5LZS55stWojOqq/view?usp=sharing" },
   ], pyqs: [
     { title: "CA 1 - 2023", driveLink: "https://drive.google.com/file/d/1xgrPON3mdAMSTO3Tjff7B47-H-hgOg3e/view?usp=sharing" },
@@ -52,6 +58,7 @@ const RESOURCES = {
     hasCourses: true,
     study: [
       // { title: "Unit 1 Notes", driveLink: "https://drive.google.com/file/d/XXXXXXXX/view?usp=sharing" },
+      { title: "Syllabus", driveLink: "https://drive.google.com/file/d/15jmeHORr0ZvROVfiiPomc-eIql-4GwIz/view?usp=sharing" },
       { title: "Unit 1", driveLink: "https://drive.google.com/file/d/1APjwZbcsgy-4PBL52Ux_yG10GXOTQQaA/view?usp=sharing" }
     ],
     pyqs: [
@@ -69,6 +76,7 @@ const RESOURCES = {
   },
 
   ct:    { name: "Computational Thinking", study: [
+    { title: "Syllabus", driveLink: "https://drive.google.com/file/d/12rR7ErOuoM67Gg1Ts9U7jdKWIcXIFisJ/view?usp=sharing" },
     { title: "Unit 1", driveLink: "https://drive.google.com/file/d/1OHdfIGwr74xamV61ktR2vRPu_ZMpUoO2/view?usp=sharing" },
     { title: "Unit 2", driveLink: "https://drive.google.com/file/d/1nAtSVpkqgpB3IuuhLpr1KDkhMHHLZJu_/view?usp=sharing" },
 
@@ -79,6 +87,7 @@ const RESOURCES = {
     { title: "CA 2 - 2024", driveLink: "https://drive.google.com/file/d/1uSYwW1TqumgRTfyoE-EFQg6GlWS9EFit/view?usp=sharing" },
   ] },
   tamil: { name: "Heritage of Tamils",     study: [
+    { title: "Syllabus", driveLink: "https://drive.google.com/file/d/1w4zgAqPAhT7oq3iSAtNUd7SJ3DZlSo27/view?usp=sharing" },
     { title: "Unit 1 - Tamil Notes", driveLink: "https://drive.google.com/file/d/1JwDvUMEIAyUZeG6TFdK42avWLxLq3XlR/view?usp=sharing" },
   ], pyqs: [
     { title: "CA 1 - 2023", driveLink: "https://drive.google.com/file/d/1kCNbcAd9pwYK6GLRDou9YFklUVVWL7et/view?usp=sharing" },

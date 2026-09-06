@@ -20,7 +20,7 @@
   const tabsEl = document.getElementById("tabs");
   const panelEl = document.getElementById("panel");
 
-  const GRADE_FOR_TIER = { "8": "A", "8.5": "A+", "9": "A+", "9.5": "O" };
+  const GRADE_FOR_TIER = { "8": "A", "8.5": "A+", "9": "A+", "9.5": "S" };
 
 
 function resetGpaPage() {

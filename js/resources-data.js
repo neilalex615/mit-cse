@@ -53,6 +53,7 @@ const RESOURCES = {
   physics:  { name: "Engineering Physics",       study: [
     { title: "Syllabus", driveLink: "https://drive.google.com/file/d/1hOViSQmhkyqK0pKVO87fprLU38tcXAm6/view?usp=sharing" },
     { title: "Handwritten Notes", driveLink: "https://drive.google.com/file/d/1Yf308GLH2x6R2Cy8nq5LZS55stWojOqq/view?usp=sharing" },
+    { title: "Unit 1", driveLink: "https://drive.google.com/file/d/1n62Ahpkpf_hQGf25iG19TBVtwPXTqk3s/view?usp=drivesdk" },
   ], pyqs: [
     { title: "CA 1 - 2023", driveLink: "https://drive.google.com/file/d/1WTJFkQJ11IDb42wo4fjYNcimAf1SFagi/view?usp=sharing" },
     { title: "CA 2 - 2023", driveLink: "https://drive.google.com/file/d/1_84QN5_BPTXWHoG6a_-5dZYCuPMELLCN/view?usp=sharing" },
